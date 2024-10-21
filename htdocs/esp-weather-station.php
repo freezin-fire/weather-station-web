@@ -44,7 +44,7 @@
 <!DOCTYPE html>
 <html>
     <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
+        <meta http-equiv="refresh" content="5">
         <link rel="stylesheet" type="text/css" href="esp-style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -65,7 +65,7 @@
 			  <div class="semi-circle"></div>
 			  <div class="semi-circle--mask"></div>
 			</div>
-		    <p style="font-size: 30px;" id="temp">--</p>
+		    <p style="font-size: 30px;" id="windspeed">--</p>
 		    <table cellspacing="5" cellpadding="5">
 		        <tr>
 		            <th colspan="3">Wind Speed <?php echo $readings_count; ?> readings</th>
@@ -88,7 +88,7 @@
 			  <div class="semi-circle"></div>
 			  <div class="semi-circle--mask"></div>
 			</div>
-		    <p style="font-size: 30px;" id="temp">--</p>
+		    <p style="font-size: 30px;" id="rain">--</p>
 		    <table cellspacing="5" cellpadding="5">
 		        <tr>
 		            <th colspan="3">Rain <?php echo $readings_count; ?> readings</th>
@@ -223,24 +223,24 @@
 
     	var newVal = scaleValue(curVal, [minWind, maxWind], [0, 180]);
     	$('.gauge--1 .semi-circle--mask').attr({
-    		style: '-webkit-transform: rotate(' + newVal + 'Kmph' +
-    		'-moz-transform: rotate(' + newVal + 'Kmph' +
-    		'transform: rotate(' + newVal + 'Kmph'
+    		style: '-webkit-transform: rotate(' + newVal + 'deg);' +
+    		'-moz-transform: rotate(' + newVal + 'deg);' +
+    		'transform: rotate(' + newVal + 'deg);'
     	});
-    	$("#temp").text(curVal + ' Kmph');
+    	$("#windspeed").text(curVal + ' Kmph');
     }
 
     function setRain(curVal){
     	var minRain = 0;
     	var maxRain = 300;
 
-    	var newVal = scaleValue(curVal, [minTemp, maxTemp], [0, 180]);
+    	var newVal = scaleValue(curVal, [minRain, maxRain], [0, 180]);
     	$('.gauge--2 .semi-circle--mask').attr({
-    		style: '-webkit-transform: rotate(' + newVal + 'mm' +
-    		'-moz-transform: rotate(' + newVal + 'mm' +
-    		'transform: rotate(' + newVal + 'mm'
+    		style: '-webkit-transform: rotate(' + newVal + 'deg);' +
+    		'-moz-transform: rotate(' + newVal + 'deg);' +
+    		'transform: rotate(' + newVal + 'deg);'
     	});
-    	$("#temp").text(curVal + ' mm');
+    	$("#rain").text(curVal + ' mm');
     }
 
     function setTemperature(curVal){
