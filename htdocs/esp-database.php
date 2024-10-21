@@ -1,12 +1,12 @@
 <?php
-  $servername = "";
+  $servername = "localhost";
 
   // REPLACE with your Database name
-  $dbname = "";
+  $dbname = "weather_data";
   // REPLACE with Database user
-  $username = "";
+  $username = "root";
   // REPLACE with Database user password
-  $password = "";
+  $password = "rootroot";
 
   function insertReading($sensor_status, $wind_dir, $wind_speed, $ambnt_temp, $humidity, $pyranometer, $rain, $mod_temp, $barometer) {
     global $servername, $username, $password, $dbname;
